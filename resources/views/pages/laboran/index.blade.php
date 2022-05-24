@@ -87,7 +87,7 @@
                 <div class="modal-body">
                     Surat telah disetujui,silahkan masukkan nomor surat <br>
                     <label for="nomor_surat">Nomor Surat</label>
-                    <input type="text" name="nomor_surat" id="nomor_surat" class="form-control" placeholder="Masukkan Nomor Surat">
+                    <input type="text" name="nomor_surat" id="nomor_surat" class="form-control" placeholder="Masukkan Nomor Surat" required>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Simpan Nomor Surat</button>

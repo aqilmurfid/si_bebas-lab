@@ -63,6 +63,10 @@ class SuratController extends Controller
     {
         $item = Surat :: findOrFail($id);
 
+        $request->validate([
+            'nomor_surat' => ['required', 'string', 'max:255']
+        ]);
+
         $item->nomor_surat = $request->nomor_surat;
         $item->save();
 
