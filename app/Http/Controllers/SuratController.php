@@ -120,4 +120,32 @@ class SuratController extends Controller
     {
         return Excel::download(new SuratExport, 'surat.xlsx');
     }
+
+    public function edit_riwayat_surat($id)
+    {
+        $item = Surat::findOrFail($id);
+
+        return view('pages.ka_lab.edit-riwayat-surat', [
+            'item' => $item
+        ]);
+    }
+
+    public function update_riwayat_surat(Request $request, $id)
+    {
+        $item = Surat::findOrFail($id);
+
+        $item->nomor_surat = $request->nomor_surat;
+        $item->save();
+
+        return redirect()->route('riwayat-surat');
+    }
+
+    public function delete_riwayat_surat($id)
+    {
+        $item = Surat::findOrFail($id);
+
+        $item->delete();
+
+        return redirect()->route('riwayat-surat');
+    }
 }

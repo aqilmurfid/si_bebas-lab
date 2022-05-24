@@ -28,6 +28,7 @@
                             <th>Tanggal Proses</th>
                             <th>Tanggal Selesai</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </head>
 
@@ -53,13 +54,23 @@
                                 @endif
                             </td>
                             <td>{{ $item->status }}</td>
-
+                            <td>
+                                @if (Auth::user()->role == 'KEPALA LAB')
+                                    <a href="{{ route('ka_lab.riwayat-surat.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ route('ka_lab.riwayat-surat.delete', $item->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
+                                @else
+                                    -
+                                @endif
+                            </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="7">---Data Kosong---</td>
+                            <td colspan="8">---Data Kosong---</td>
                         </tr>
-
                         @endforelse
 
                         </tr>

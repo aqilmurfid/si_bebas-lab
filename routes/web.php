@@ -87,6 +87,12 @@ Route::middleware('ka_lab')
     Route::delete('/data-mahasiswa/delete/{id}', [MahasiswaController::class, 'destroy'])->name('data-mahasiswa-destroy');
 
     Route::get('/data-laboran/cetak-excel', [SuratController::class, 'laporan'])->name('ka_lab.laporan');
+
+    Route::get('/data-laboran/edit-riwayat-surat/{id}', [SuratController::class, 'edit_riwayat_surat'])->name('ka_lab.riwayat-surat.edit');
+
+    Route::patch('/data-laboran/update-riwayat-surat/{id}', [SuratController::class, 'update_riwayat_surat'])->name('ka_lab.riwayat-surat.update');
+
+    Route::delete('/data-laboran/delete-riwayat-surat/{id}', [SuratController::class, 'delete_riwayat_surat'])->name('ka_lab.riwayat-surat.delete');
 });
 
 Route::middleware('ka_lab_laboran')
