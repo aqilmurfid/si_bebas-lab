@@ -139,6 +139,27 @@ class SuratController extends Controller
         $item = Surat::findOrFail($id);
 
         $item->nomor_surat = $request->nomor_surat;
+        $item->tanggal_selesai = Carbon::now();
+        $item->save();
+
+        return redirect()->route('riwayat-surat');
+    }
+
+    public function edit_riwayat_surat2($id)
+    {
+        $item = Surat::findOrFail($id);
+
+        return view('pages.laboran.edit-riwayat-surat', [
+            'item' => $item
+        ]);
+    }
+
+    public function update_riwayat_surat2(Request $request, $id)
+    {
+        $item = Surat::findOrFail($id);
+
+        $item->nomor_surat = $request->nomor_surat;
+        $item->tanggal_selesai = Carbon::now();
         $item->save();
 
         return redirect()->route('riwayat-surat');

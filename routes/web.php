@@ -63,6 +63,10 @@ Route::middleware('laboran')
 
     Route::get('/data-mahasiswa/edit/{id}', [MahasiswaController::class, 'edit'])->name('data-mahasiswa-edit');
 
+    Route::get('/data-laboran/edit-riwayat-surat/{id}', [SuratController::class, 'edit_riwayat_surat2'])->name('laboran.riwayat-surat.edit');
+
+    Route::patch('/data-laboran/update-riwayat-surat/{id}', [SuratController::class, 'update_riwayat_surat2'])->name('laboran.riwayat-surat.update');
+
     Route::put('/data-mahasiswa/update/{id}', [MahasiswaController::class, 'update'])->name('data-mahasiswa-update');
 
     Route::post('/data-mahasiswa/import', [MahasiswaController::class, 'import'])->name('data-mahasiswa-import');
@@ -88,11 +92,11 @@ Route::middleware('ka_lab')
 
     Route::get('/data-laboran/cetak-excel', [SuratController::class, 'laporan'])->name('ka_lab.laporan');
 
-    Route::get('/data-laboran/edit-riwayat-surat/{id}', [SuratController::class, 'edit_riwayat_surat'])->name('ka_lab.riwayat-surat.edit');
+    Route::get('/data-kepala-lab/edit-riwayat-surat/{id}', [SuratController::class, 'edit_riwayat_surat'])->name('ka_lab.riwayat-surat.edit');
 
-    Route::patch('/data-laboran/update-riwayat-surat/{id}', [SuratController::class, 'update_riwayat_surat'])->name('ka_lab.riwayat-surat.update');
+    Route::patch('/data-kepala-lab/update-riwayat-surat/{id}', [SuratController::class, 'update_riwayat_surat'])->name('ka_lab.riwayat-surat.update');
 
-    Route::delete('/data-laboran/delete-riwayat-surat/{id}', [SuratController::class, 'delete_riwayat_surat'])->name('ka_lab.riwayat-surat.delete');
+    Route::delete('/data-kepala-lab/delete-riwayat-surat/{id}', [SuratController::class, 'delete_riwayat_surat'])->name('ka_lab.riwayat-surat.delete');
 });
 
 Route::middleware('ka_lab_laboran')

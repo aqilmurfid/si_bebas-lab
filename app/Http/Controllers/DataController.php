@@ -71,7 +71,7 @@ class DataController extends Controller
             'no_hp' => ['required', 'string', 'max:255'],
         ]);
 
-        if ($request->email !== $user->email) {
+        if ($request->email != $user->email) {
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);

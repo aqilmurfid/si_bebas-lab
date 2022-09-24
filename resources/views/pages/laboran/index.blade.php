@@ -51,7 +51,9 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $item->id }}">
                                 Beri Nomor Surat
                                   </button>
-                                  @else
+                                @elseif ($item->nomor_surat != NULL)
+                                  <a href="{{ route('laboran.riwayat-surat.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                @else
                                   -
                                 @endif
 
